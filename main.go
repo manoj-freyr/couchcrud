@@ -34,14 +34,14 @@ func main(){
 		 log.Fatal(err)
 	}
 	userprofile := UserProfile{ Username : datamap["username"].(string),
-                                Firstname : datamap["firstname"].(string),
-							    Lastname : datamap["lastname"].(string),
-								Email : datamap["email"].(string),
-								Password : datamap["password"].(string)}
+                                    Firstname : datamap["firstname"].(string),
+				    Lastname : datamap["lastname"].(string),
+				    Email : datamap["email"].(string),
+	    			    Password : datamap["password"].(string)}
 	myCluster, _ := gocb.Connect("couchbase://localhost")
         myCluster.Authenticate(gocb.PasswordAuthenticator{
-            Username: "Administrator",
-            Password: "adminpwd",
+            Username: "SuperRootUser",
+            Password: "dummypwd",
         })
 	bucket, _ = myCluster.OpenBucket("travel-data", "")
 	_, err = bucket.Upsert(datamap["username"].(string), userprofile, 0)
