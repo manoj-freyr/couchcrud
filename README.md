@@ -9,6 +9,7 @@ Before running the example we need to
      --services data --cluster-ramsize 2048
      
 3. Create a bucket with some name:
+
       couchbase-cli bucket-create -c 127.0.0.1:8091 --username SuperRootUser  --password dummypwd \
       --bucket travel-data --bucket-type couchbase --bucket-ramsize 1024
       
